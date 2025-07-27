@@ -1,5 +1,3 @@
-import os
-
 from src.product import Product
 from src.readers import read_json_file
 
@@ -26,7 +24,7 @@ class Category:
 
     @property
     def get_list_products(self):
-        return [f"{elem['name']}, {elem['price']} руб. Остаток: {elem['quantity']} шт" for elem in self.__products]
+        return [f"{elem['name']}, {elem['price']} руб. Остаток: {elem['quantity']} шт\n" for elem in self.__products]
 
 
 def create_category_from_json_file(path_to_file: str = "") -> list:

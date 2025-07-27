@@ -30,7 +30,9 @@ class Product:
 
     @product_price.setter
     def product_price(self, price):
-        if price >= 0:
+        if price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+        else:
             if self.__price > price:
                 while True:
                     permission = input("Подтвердите изменение цены y\\n \nВвод: ")
@@ -43,5 +45,3 @@ class Product:
                         break
             else:
                 self.__price = price
-        else:
-            print("Цена не должна быть нулевая или отрицательная")
