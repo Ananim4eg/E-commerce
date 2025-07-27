@@ -1,5 +1,5 @@
 [project]
-name = "e-commerce"
+name = "E-commerce"
 version = "0.1.0"
 description = ""
 authors = [
@@ -8,6 +8,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "pytest (>=8.4.1,<9.0.0)"
 ]
 
 
@@ -20,6 +21,7 @@ flake8 = "^7.3.0"
 black = "^25.1.0"
 isort = "^6.0.1"
 mypy = "^1.16.1"
+pytest-cov = "^6.2.1"
 
 [tool.black]
 line-length = 119
