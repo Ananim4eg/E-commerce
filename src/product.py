@@ -15,6 +15,9 @@ class Product:
         Product._products.append(self.name)
         Product._objects[f"{self.name}"] = self
 
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
     @classmethod
     def new_product(cls, product: dict):
         if product["name"] not in cls._products:

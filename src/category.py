@@ -18,6 +18,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(product)
 
+    def __str__(self):
+        count_product = 0
+        for prod in self.__products:
+            count_product += prod["quantity"]
+        return f"{self.name}, количество продуктов: {count_product} шт."
+
     def add_product(self, product: Product) -> None:
         self.__products.append(product)
         Category.product_count += 1
@@ -36,3 +42,15 @@ def create_category_from_json_file(path_to_file: str = "") -> list:
         category_list.append(Category(elem["name"], elem["description"], elem["products"]))
 
     return category_list
+
+
+var = Category("Car",
+                    "Transport",
+                    [
+                        {"name": "audi", "price": 3_000_000, "quantity": 7},
+                        {"name": "bmw", "price": 4_000_000, "quantity": 2},
+                        {"name": "toyota", "price": 2_100_000, "quantity": 4}
+                            ]
+                    )
+
+print(str(var))
