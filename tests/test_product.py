@@ -5,15 +5,6 @@ import pytest
 from src.product import Product
 
 
-@pytest.fixture()
-def create_product():
-    return Product("Table", "Wood", 12.350, 7)
-
-@pytest.fixture()
-def create_dict_product():
-    return {"name": "chair", "description": "Wood", "price": 7.50, "quantity": 4}
-
-
 def test_product(create_product):
 
     assert create_product.name == "Table"

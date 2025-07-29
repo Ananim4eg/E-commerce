@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     print(str(category1))
 
-    print(category1.products)
+    print(category1.get_list_products)
 
     print(product1 + product2)
     print(product1 + product3)
