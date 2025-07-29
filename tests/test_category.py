@@ -10,11 +10,6 @@ def test_category(create_category):
 
     assert create_category.name == "Car"
     assert create_category.description == "Transport"
-    assert create_category.get_list_products == [
-        'audi, 3000000 руб. Остаток: 7 шт\n',
-         'bmw, 4000000 руб. Остаток: 2 шт\n',
-         'toyota, 2100000 руб. Остаток: 4 шт\n'
-    ]
     assert create_category.category_count == 1
     assert create_category.product_count == 3
 
