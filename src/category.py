@@ -32,6 +32,10 @@ class Category:
     def get_list_products(self):
         return [f"{str(elem)}\n" for elem in self.__products]
 
+    @property
+    def get_products(self):
+        return [prod for prod in self.__products]
+
 
 def create_category_from_json_file(path_to_file: str = "") -> list:
     """Создает объекты класса на основании информации их json-файла"""
