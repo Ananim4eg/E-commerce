@@ -74,7 +74,7 @@ def test_correctly_price(capsys):
 
 def test_method_add():
 
-    prod1 = Product.new_product({"name": "pedestal", "description": "Wood", "price": 9, "quantity": 5})
-    prod2 = Product.new_product({"name": "bed", "description": "Wood", "price": 17, "quantity": 8})
+    prod1 = Product.new_product({"name": "hanger", "description": "Wood", "price": 9, "quantity": 5})
+    prod2 = Product.new_product({"name": "board", "description": "Wood", "price": 17, "quantity": 8})
 
     assert prod1 + prod2 == 181
