@@ -29,6 +29,7 @@ def test_create_category_from_json_file():
             assert category.name == "auto"
             assert category.description == "new_auto"
 
+
 def test_add_new_product():
     Category.product_count = 0
     elem_1 =  Product("mobile", "mobile_phone", 13000, 4)
@@ -43,6 +44,7 @@ def test_add_new_product():
     category_1.add_product(elem_1)
     assert  Category.product_count == 2
 
+
 def test_get_list_products(product1, product2, product3):
     elem = Category("auto", "new_auto", [product1, product2, product3])
     assert elem.get_list_products == [
@@ -50,3 +52,14 @@ def test_get_list_products(product1, product2, product3):
         'bmw, 4000000 руб. Остаток: 2 шт.\n',
         'toyota, 2100000 руб. Остаток: 4 шт.\n'
     ]
+
+
+def test_method_str(product1, product2, product3):
+    elem = Category("auto", "new_auto", [product1, product2, product3])
+    assert str(elem) == 'auto, количество продуктов: 13 шт.'
+
+
+def test_get_products(product1, product2, product3):
+    elem = Category("auto", "new_auto", [product1, product2, product3])
+    assert elem.get_products == [product1, product2, product3]
+
