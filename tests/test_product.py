@@ -2,7 +2,9 @@ from unittest import mock
 
 import pytest
 
+from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 def test_product(create_product):
@@ -78,3 +80,12 @@ def test_method_add():
     prod2 = Product.new_product({"name": "board", "description": "Wood", "price": 17, "quantity": 8})
 
     assert prod1 + prod2 == 181
+
+
+def test_method_add_typeerror(product1, smartphone):
+
+    prod1 = product1
+    smart1 = smartphone
+
+    with pytest.raises(TypeError):
+        assert prod1 + smart1

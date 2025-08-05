@@ -63,3 +63,10 @@ def test_get_products(product1, product2, product3):
     elem = Category("auto", "new_auto", [product1, product2, product3])
     assert elem.get_products == [product1, product2, product3]
 
+
+def test_add_new_product_err(product1, smartphone):
+    elem = Category("auto", "new_auto", [product1])
+    elem2 = Category("auto", "new_auto", [smartphone])
+
+    with pytest.raises(TypeError):
+        elem.add_product(elem2)
