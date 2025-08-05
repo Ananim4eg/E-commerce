@@ -23,6 +23,37 @@ price
 quantity
 ```
 
+- Наследники класса Product
+
+  * Smartphone
+  ```
+  С параметрами:
+  
+  name
+  description
+  price
+  quantity
+  
+  efficiency
+  model
+  memory
+  color
+  ```
+  
+  * LawnGrass
+  ```
+  С параметрами:
+  
+  name
+  description
+  price
+  quantity
+  
+  country
+  germination_period
+  color
+  ```
+
 ### Реализована загрузка категорий из json-файла
 
 ```

@@ -1,7 +1,9 @@
 import pytest
 
 from src.category import Category
+from src.lawngrass import LawnGrass
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 @pytest.fixture()
@@ -35,3 +37,13 @@ def product2():
 @pytest.fixture()
 def product3():
     return Product("toyota", "new_auto", 2_100_000, 4)
+
+@pytest.fixture()
+def smartphone():
+    return Smartphone(
+        "iphone", "mobile",120000, 8, "high", 14, 512, "grey"
+    )
+
+@pytest.fixture()
+def lawngrass():
+    return LawnGrass("green_stone", "lawn grass for garden", 130, 450, "Germany", 0.5, "green")
