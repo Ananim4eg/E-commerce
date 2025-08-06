@@ -16,12 +16,12 @@ class BaseProduct(ABC):
     def __str__(self):
         pass
 
-    @abstractmethod
     @property
+    @abstractmethod
     def product_price(self):
         pass
 
-    @abstractmethod
     @product_price.setter
+    @abstractmethod
     def product_price(self, price):
         pass
