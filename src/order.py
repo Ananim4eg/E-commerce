@@ -1,7 +1,8 @@
+from src.basepay import BasePay
 from src.product import Product
 
 
-class Order:
+class Order(BasePay):
     product: Product
     quantity: int
     total_price: int

@@ -1,8 +1,9 @@
+from src.basepay import BasePay
 from src.product import Product
 from src.readers import read_json_file
 
 
-class Category:
+class Category(BasePay):
     name: str
     description: str
     __products: list
