@@ -1,6 +1,6 @@
 # *E-commerce*
 
-##  В проект добавлены 2 класса
+##  В проект добавлены следующие классы
 - Category
 ```
 C параметрами:
@@ -11,6 +11,15 @@ products
 
 category_count
 product_count
+```
+
+- Order
+```
+C параметрами:
+
+product
+quantity
+total_price
 ```
 
 - Product
@@ -53,7 +62,24 @@ quantity
   germination_period
   color
   ```
-
+- Базовые абстрактные классы
+  + BaseProduct
+  ```
+  С методами:
+  
+  new_product
+  __str__
+  __add__
+  getter - product_price
+  setter - product_price
+  ```
+  
+  + BasePay
+  ```
+  С методами:
+  
+  __init__
+  ```
 ### Реализована загрузка категорий из json-файла
 
 ```

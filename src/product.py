@@ -1,4 +1,8 @@
-class Product:
+from src.baseproduct import BaseProduct
+from src.mixinInfo import MixinInfo
+
+
+class Product(BaseProduct, MixinInfo):
     name: str
     description: str
     __price: float
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        MixinInfo.__repr__(self)
 
         Product._products.append(self.name)
         Product._objects[f"{self.name}"] = self

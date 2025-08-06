@@ -71,7 +71,7 @@ def test_correctly_price(capsys):
 
     message = capsys.readouterr()
 
-    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
+    assert message.out.strip().split("\n")[-1] == "Цена не должна быть нулевая или отрицательная"
 
 
 def test_method_add():
