@@ -15,7 +15,7 @@ class Product(BaseProduct, MixinInfo):
         self.description = description
         self.__price = price
         self.quantity = quantity
-        MixinInfo.__repr__(self)
+        super().__repr__()
 
         Product._products.append(self.name)
         Product._objects[f"{self.name}"] = self
