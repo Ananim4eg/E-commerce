@@ -40,6 +40,11 @@ class Category(BasePay):
     def get_products(self):
         return [prod for prod in self.__products]
 
+    def middle_price(self):
+        try:
+            return sum([prod.product_price for prod in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
 
 def create_category_from_json_file(path_to_file: str = "") -> list:
     """Создает объекты класса на основании информации их json-файла"""
