@@ -89,3 +89,8 @@ def test_method_add_typeerror(product1, smartphone):
 
     with pytest.raises(TypeError):
         assert prod1 + smart1
+
+
+def test_new_product_with_zero_quantity():
+    with pytest.raises(ValueError):
+        Product("audi", "new_auto", 3_000_000, 0)

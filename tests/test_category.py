@@ -70,3 +70,36 @@ def test_add_new_product_err(product1, smartphone):
 
     with pytest.raises(TypeError):
         elem.add_product(elem2)
+
+
+def test_add_new_product_with_zero_quantity(capsys, product1):
+    prod = product1
+    prod.quantity = 0
+    elem = Category("auto", "new_auto", [prod])
+    message = capsys.readouterr()
+
+    assert message.out.strip().split("\n")[-2] == "Кол-во товара не может быть нулевым"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"
+
+    elem.add_product(prod)
+    message = capsys.readouterr()
+
+    assert message.out.strip().split("\n")[-2] == "Кол-во товара не может быть нулевым"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"
+
+    Category("auto", "new_auto", [{"name": "audi", "price": 3_000_000, "quantity": 0}])
+    message = capsys.readouterr()
+
+    assert message.out.strip().split("\n")[-2] == "Кол-во товара не может быть нулевым"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"
+
+
+def test_middle_price(product1, product2):
+    elem = Category("auto", "new_auto", [product1, product2])
+    assert elem.middle_price() == 3500000.0
+
+
+def test_middle_price_empty_list_products():
+    elem = Category("auto", "new_auto", [])
+
+    assert elem.middle_price() == 0
