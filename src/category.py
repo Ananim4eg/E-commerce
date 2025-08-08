@@ -26,6 +26,8 @@ class Category(BasePay):
                     self.__products = product
                 else:
                     raise ZeroQuantityProduct
+            else:
+                self.__products = product
         except ZeroQuantityProduct as e:
             print(e)
         else:

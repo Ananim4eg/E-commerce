@@ -15,7 +15,7 @@ class Order(BasePay):
             else:
                 raise ZeroQuantityProduct
         except ZeroQuantityProduct as e:
-            print(e)
+            print(str(e))
         else:
             print("Товар добавлен")
         finally:
