@@ -16,10 +16,16 @@ class Category(BasePay):
         self.name = name
         self.description = description
         try:
-            if product.quantity > 0:
-                self.__products = product
-            else:
-                raise ZeroQuantityProduct
+            if any([type(prod) == dict for prod in product]):
+                if all([prod["quantity"] > 0 for prod in product]):
+                    self.__products = product
+                else:
+                    raise ZeroQuantityProduct
+            elif any([type(prod) == Product for prod in product]):
+                if all([prod.quantity > 0 for prod in product]):
+                    self.__products = product
+                else:
+                    raise ZeroQuantityProduct
         except ZeroQuantityProduct as e:
             print(e)
         else:
