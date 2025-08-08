@@ -1,4 +1,5 @@
 from src.basepay import BasePay
+from src.exceptions import ZeroQuantityProduct
 from src.product import Product
 from src.readers import read_json_file
 
@@ -14,7 +15,17 @@ class Category(BasePay):
     def __init__(self, name, description, product):
         self.name = name
         self.description = description
-        self.__products = product
+        try:
+            if product.quantity > 0:
+                self.__products = product
+            else:
+                raise ZeroQuantityProduct
+        except ZeroQuantityProduct as e:
+            print(e)
+        else:
+            print("Товар добавлен")
+        finally:
+            print("Обработка добавления товара завершена")
 
         Category.category_count += 1
         Category.product_count += len(product)
@@ -27,8 +38,18 @@ class Category(BasePay):
 
     def add_product(self, product: Product) -> None:
         if issubclass(type(product), Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity > 0:
+                    self.__products.append(product)
+                    Category.product_count += 1
+                else:
+                    raise ZeroQuantityProduct
+            except ZeroQuantityProduct as e:
+                print(e)
+            else:
+                print("Товар добавлен")
+            finally:
+                print("Обработка добавления товара завершена")
         else:
             raise TypeError
 
